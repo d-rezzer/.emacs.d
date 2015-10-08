@@ -1,9 +1,33 @@
 ;;this is my super awesome noob init file
 ;;(setq inhibit-startup-screen t)
 
+;;trying to understand the theme system.
+
+;;should do some checking bits
+;;;(load-theme 'zenburn)
+(set-default-font "Source Code Pro")
+
+;;;;;;;Theme stuff ;;;;;;;;
+(setq my-themes '(zenburn monochrome solarized-light))
+
+(setq my-cur-theme nil)
+
+(defun cycle-my-theme ()
+  "Cycle through the list of themes"
+  (interactive)
+  (when my-cur-theme
+    (disable-theme my-cur-theme)
+    (setq my-themes (append my-themes (list my-cur-theme))))
+  (setq my-cur-theme (pop my-themes))
+  (load-theme my-cur-theme t))
+
+
+;;bind to 
+(global-set-key (kbd "C-t") 'cycle-my-theme)
+
+
 ;;package.el
 (require 'package)
-(setq package-user-dir "~/.emacs.d/elpa")
 
 
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
@@ -114,3 +138,17 @@
 
 
 
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("8fed5e4b89cf69107d524c4b91b4a4c35bcf1b3563d5f306608f0c48f580fdf8" "19352d62ea0395879be564fc36bc0b4780d9768a964d26dfae8aad218062858d" default))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
