@@ -8,7 +8,7 @@
 (set-default-font "Source Code Pro")
 
 ;;;;;;;Theme stuff ;;;;;;;;
-(setq my-themes '(zenburn monochrome solarized-light))
+(setq my-themes '(zenburn monochrome monokai atom-dark))
 
 (setq my-cur-theme nil)
 
@@ -25,7 +25,6 @@
 ;;bind to 
 (global-set-key (kbd "C-t") 'cycle-my-theme)
 
-
 ;;package.el
 (require 'package)
 
@@ -35,7 +34,7 @@
 (package-initialize)
 
 ;;emmet
-(defvar my-packages '(helm cider ace-window paredit))
+(defvar my-packages '(helm cider ace-window paredit emmet-mode zenburn-theme monochrome-theme solarized-theme monokai-theme atom-dark-theme))
 
 
 
@@ -48,7 +47,7 @@
 	      (package-install package)))
 	my-packages))
 
-;;(install-sweet-package-love)
+(install-sweet-package-love)
 ;; does the same as above it seems, just differently. 
 ;;(dolist (p my-packages)
 ;;  (when (not (package-installed-p p))
@@ -152,3 +151,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
