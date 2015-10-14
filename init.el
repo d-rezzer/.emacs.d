@@ -1,32 +1,24 @@
 ;;this is my super awesome noob init file
 ;;(setq inhibit-startup-screen t)
-
-;;trying to understand the theme system.
-
-;;should do some checking bits
-;;;(load-theme 'zenburn)
-(set-default-font "Source Code Pro")
-
-;;;;;;;Theme stuff ;;;;;;;;
-(setq my-themes '(zenburn monochrome monokai atom-dark))
-
-(setq my-cur-theme nil)
-
-(defun cycle-my-theme ()
-  "Cycle through the list of themes"
-  (interactive)
-  (when my-cur-theme
-    (disable-theme my-cur-theme)
-    (setq my-themes (append my-themes (list my-cur-theme))))
-  (setq my-cur-theme (pop my-themes))
-  (load-theme my-cur-theme t))
-
-
-;;bind to 
-(global-set-key (kbd "C-t") 'cycle-my-theme)
-
 ;;package.el
 (require 'package)
+
+
+(add-to-list 'load-path "~/.emacs.d/elisp/")
+
+(load-library "themes")
+;;(load-library "mail")
+
+;;I would like to know how i could detect OS
+;;============================================================
+
+(defun figwheel-repl ()
+  (interactive)
+  (run-clojure "lein figwheel"))
+
+(add-hook 'clojure-mode-hook #'inf-clojure-mode)
+
+
 
 
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
@@ -34,7 +26,7 @@
 (package-initialize)
 
 ;;emmet
-(defvar my-packages '(helm cider ace-window paredit emmet-mode zenburn-theme monochrome-theme solarized-theme monokai-theme atom-dark-theme))
+(defvar my-packages '(helm cider ace-window paredit emmet-mode))
 
 
 
@@ -106,8 +98,6 @@
 	     (local-set-key (kbd "C-l") 'eshell-clear-buffer)))
 
 
-
-
 ;;ace-window
 (global-set-key (kbd "M-p") 'ace-window)
 (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
@@ -119,36 +109,19 @@
    (add-hook 'html-mode-hook 'emmet-mode)
    (add-hook 'css-mode-hook  'emmet-mode)
 
+(shell)
 
 
-;;try to get babun to run in macs. would be boss.
-;;this sorta works..
-(defun babun-shell ()
-  "run cygwin/babun inside emacs shell mode"
-  (interactive)
-  (let ((explicit-shell-file-name "C:/Users/ryan/.babun/cygwin/cygwin.bat"))
-    (call-interactively 'shell) ) )
-
-;;the cool babun cygwin shell..
-(global-set-key [f1] 'babun-shell)
 
 
   
 
 
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   (quote
-    ("8fed5e4b89cf69107d524c4b91b4a4c35bcf1b3563d5f306608f0c48f580fdf8" "19352d62ea0395879be564fc36bc0b4780d9768a964d26dfae8aad218062858d" default))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+
+
+
+
+
+
 
