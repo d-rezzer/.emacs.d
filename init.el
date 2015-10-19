@@ -57,7 +57,7 @@
 
 
 ;;(setq company-idle-delay t)
-;(global-set-key (kbd "M-TAB") #'company-complete) ;;meta-Tab
+;;(global-set-key (kbd "M-TAB") #'company-complete) ;;meta-Tab
 	  
 
 ;;clear the eshell buffer because there is no clear screen.
