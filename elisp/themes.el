@@ -2,7 +2,7 @@
 
 (defvar my-themes '( zenburn-theme monochrome-theme solarized-theme monokai-theme atom-dark-theme))
 
-(defun install-sweet-package-love ()
+(defun install-themes ()
   "Install only the sweetest of packages!"
   (interactive)
   (package-refresh-contents)
@@ -12,7 +12,8 @@
 	my-themes))
 
 
-
+(install-themes)
+(global-set-key [f1] 'cycle-my-theme)
 ;;;(load-theme 'zenburn)
 (set-default-font "Source Code Pro")
 
