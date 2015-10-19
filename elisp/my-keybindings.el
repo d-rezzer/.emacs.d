@@ -1,3 +1,6 @@
+;;magit
+(global-set-key (kbd "C-x g") 'magit-status)
+
 ;;helm
 (global-set-key (kbd "C-c C-f") 'helm-projectile)
 
