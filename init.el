@@ -20,7 +20,7 @@
 (package-initialize)
 
 ;;emmet
-(defvar my-packages '(helm cider inf-clojure magit projectile helm-projectile ace-window smartparens emmet-mode))
+(defvar my-packages '(helm cider inf-clojure magit projectile helm-projectile ace-window smartparens emmet-mode buffer-move))
 
 
 
