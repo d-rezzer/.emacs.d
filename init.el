@@ -83,12 +83,20 @@
 
 ;;(shell)
 
+;;(require 'projectile)
+;;(require 'helm-projectile)
+(projectile-global-mode)
 
+(setq projectile-indexing-method 'native)
+(setq projectile-enable-caching nil )
+(setq projectile-require-project-root t)
 
-
-
-
-
-
-
-
+;;Integrated find file with projectile.
+;; from some clever dude on the interwebs
+ (defun dz-open-file ()			
+   "open file using helm-projectile or ido"
+   (interactive)
+   (if (projectile-project-p)
+       (helm-projectile)
+     (helm-for-files)))
+ 
